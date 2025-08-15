@@ -10,7 +10,11 @@ app.use(cors());
 
 // Connect to the database
 myDatabaseMongoServer()
+
 // Routes
+
+
+// Parse JSON requests
 app.use(express.json());
 
 // Start the server
