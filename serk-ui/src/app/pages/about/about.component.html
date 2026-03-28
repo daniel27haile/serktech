@@ -1,0 +1,138 @@
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <span class="section-label">About</span>
+        <h1>Building Web Solutions That <span class="gradient-text">Actually Work</span></h1>
+        <p class="hero-intro">
+          Serk Technologies is a software development LLC with a focus on frontend excellence and practical product thinking. We were founded because we saw a gap between what businesses needed from their websites and what they were actually getting — generic templates, unreliable vendors, and missed deadlines.
+        </p>
+        <p>
+          We have spent years building web applications from the ground up — Angular dashboards, React frontends, Node.js APIs, AWS deployments, and everything in between. We are not generalists who dabble. We are engineers who have done the work and know how to deliver.
+        </p>
+        <div class="hero-ctas">
+          <a routerLink="/contact" class="btn btn-primary">Work With Us</a>
+          <a routerLink="/portfolio" class="btn btn-outline">See Our Work</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="avatar-block">
+          <div class="avatar-circle">
+            <span>ST</span>
+          </div>
+          <div class="stat-chips">
+            <div class="stat-chip">
+              <span class="stat-num">50+</span>
+              <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat-chip">
+              <span class="stat-num">5★</span>
+              <span class="stat-label">Reviews</span>
+            </div>
+            <div class="stat-chip">
+              <span class="stat-num">3+</span>
+              <span class="stat-label">Years</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="section story-section">
+  <div class="container">
+    <div class="story-inner">
+      <div class="story-text">
+        <span class="section-label">The Story</span>
+        <h2 class="section-title">Why We Started <span>Serk Technologies</span></h2>
+        <p>
+          Too many small businesses and founders were spending money on websites that looked cheap, loaded slowly, or simply didn't convert. And too many vendors were delivering code that worked in a demo but fell apart in production.
+        </p>
+        <p>
+          We built Serk Technologies around one idea: that good software should be accessible to any business, not just enterprise companies with large engineering teams. Every client we work with gets the same attention to detail, the same quality of code, and the same honest communication — regardless of project size.
+        </p>
+        <p>
+          Our background is in building scalable web applications: Angular and React frontends, Node.js backends, MongoDB databases, and AWS cloud infrastructure. Our real specialization is turning a business requirement into a working, reliable product — and delivering it on time.
+        </p>
+      </div>
+      <div class="story-highlights">
+        <div class="highlight-card card">
+          <div class="highlight-icon">🏗️</div>
+          <h4>End-to-End Development</h4>
+          <p>We handle design, frontend, backend, and deployment. No need to coordinate between multiple vendors.</p>
+        </div>
+        <div class="highlight-card card">
+          <div class="highlight-icon">🧪</div>
+          <h4>Production-Ready Code</h4>
+          <p>Code that is tested, documented, and optimized — not just something that passes a demo.</p>
+        </div>
+        <div class="highlight-card card">
+          <div class="highlight-icon">📊</div>
+          <h4>Business-Aware Development</h4>
+          <p>We think in terms of outcomes, not just features. Every decision is tied back to your business goals.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section skills-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Technical Skills</span>
+      <h2 class="section-title">The Tools We <span>Work With</span></h2>
+      <p class="section-desc">A practical skill set built through real project experience — not just tutorials.</p>
+    </div>
+
+    <div class="skills-grid">
+      @for (skillGroup of skills; track skillGroup.category) {
+        <div class="skill-group card">
+          <h4>{{ skillGroup.category }}</h4>
+          <div class="skill-tags">
+            @for (item of skillGroup.items; track item) {
+              <span class="tag">{{ item }}</span>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="section values-section">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="section-label">How We Work</span>
+      <h2 class="section-title">The Values Behind <span>Everything We Build</span></h2>
+    </div>
+
+    <div class="values-grid">
+      @for (v of values; track v.title) {
+        <div class="value-card card">
+          <div class="value-icon">{{ v.icon }}</div>
+          <h4>{{ v.title }}</h4>
+          <p>{{ v.desc }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section text-center">
+  <div class="container">
+    <div class="about-cta-block">
+      <h2>Ready to Work Together?</h2>
+      <p>Let's start with a free 30-minute call. We'll listen to what you need, ask the right questions, and be straight with you about what's possible.</p>
+      <div class="cta-btns">
+        <a routerLink="/contact" class="btn btn-primary btn-lg">Book a Free Consultation</a>
+        <a routerLink="/services" class="btn btn-outline btn-lg">See Our Services</a>
+      </div>
+    </div>
+  </div>
+</section>

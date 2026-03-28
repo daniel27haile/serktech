@@ -1,0 +1,95 @@
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <span class="section-label">Portfolio</span>
+    <h1>Work That <span class="gradient-text">Delivers Results</span></h1>
+    <p>A selection of projects that solved real problems — built clean, shipped on time, and measured by business impact.</p>
+  </div>
+</section>
+
+<!-- FILTER TABS -->
+<section class="section-sm">
+  <div class="container">
+    <div class="filter-tabs">
+      @for (cat of categories; track cat) {
+        <button
+          class="filter-btn"
+          [class.active]="activeCategory() === cat"
+          (click)="setCategory(cat)"
+        >{{ cat }}</button>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS GRID -->
+<section class="section" style="padding-top: 0;">
+  <div class="container">
+    @if (filteredProjects().length === 0) {
+      <div class="no-results">
+        <p>No projects in this category yet.</p>
+      </div>
+    }
+
+    <div class="portfolio-grid">
+      @for (project of filteredProjects(); track project.id) {
+        <div class="portfolio-card card">
+          <div class="card-header">
+            @if (project.featured) {
+              <span class="featured-badge">Featured</span>
+            }
+            <div class="card-categories">
+              @for (cat of project.category; track cat) {
+                <span class="tag">{{ cat }}</span>
+              }
+            </div>
+          </div>
+
+          <h3>{{ project.title }}</h3>
+          <p class="card-summary">{{ project.summary }}</p>
+
+          <div class="card-result">
+            <div class="result-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+                <polyline points="16 7 22 7 22 13"/>
+              </svg>
+            </div>
+            <p>{{ project.result }}</p>
+          </div>
+
+          <div class="card-tech">
+            @for (tech of project.technologies; track tech) {
+              <span class="tag">{{ tech }}</span>
+            }
+          </div>
+
+          @if (project.liveUrl || project.githubUrl) {
+            <div class="card-links">
+              @if (project.liveUrl) {
+                <a [href]="project.liveUrl" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Live Demo</a>
+              }
+              @if (project.githubUrl) {
+                <a [href]="project.githubUrl" target="_blank" rel="noopener" class="btn btn-outline btn-sm">GitHub</a>
+              }
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section text-center">
+  <div class="container">
+    <div class="cta-block">
+      <h2>Want Results Like These?</h2>
+      <p>Every project starts with understanding your goals. Let's talk about yours.</p>
+      <div class="cta-btns">
+        <a routerLink="/contact" class="btn btn-primary btn-lg">Start Your Project</a>
+        <a routerLink="/services" class="btn btn-outline btn-lg">View Services</a>
+      </div>
+    </div>
+  </div>
+</section>

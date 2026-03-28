@@ -1,0 +1,84 @@
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <span class="section-label">What We Offer</span>
+      <h1>Services Built to <span class="gradient-text">Move Your Business Forward</span></h1>
+      <p>
+        From a clean business website to a full-stack application with cloud deployment, we cover the full range of modern web development — with clear communication and reliable execution.
+      </p>
+      <div class="hero-ctas">
+        <a routerLink="/contact" class="btn btn-primary btn-lg">Book a Free Consultation</a>
+        <a routerLink="/pricing" class="btn btn-outline btn-lg">View Pricing</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES GRID -->
+<section class="section">
+  <div class="container">
+    <div class="services-list">
+      @for (service of services; track service.id) {
+        <div class="service-detail-card card" [id]="service.id">
+          <div class="service-card-left">
+            <div class="service-icon-lg">{{ service.icon }}</div>
+          </div>
+          <div class="service-card-right">
+            <h2 class="service-title">{{ service.title }}</h2>
+            <p class="service-desc">{{ service.description }}</p>
+
+            <div class="service-meta-grid">
+              <div class="service-meta-item">
+                <h4>Who It's For</h4>
+                <p>{{ service.forWho }}</p>
+              </div>
+              <div class="service-meta-item">
+                <h4>What You Get</h4>
+                <p>{{ service.outcome }}</p>
+              </div>
+            </div>
+
+            <div class="service-tags-row">
+              @for (tag of service.tags; track tag) {
+                <span class="tag">{{ tag }}</span>
+              }
+            </div>
+
+            <div class="service-card-cta">
+              <a routerLink="/contact" class="btn btn-primary">Start This Project</a>
+              <a routerLink="/contact" class="btn btn-ghost">Get a Quote →</a>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOM SOLUTIONS -->
+<section class="section custom-section">
+  <div class="container">
+    <div class="custom-card card">
+      <div class="custom-icon">🧩</div>
+      <div class="custom-content">
+        <h2>Need a Custom Solution?</h2>
+        <p>Every business is different. If your project doesn't fit neatly into one service category, or if you need a combination of several, let's talk. We'll review your requirements and put together a clear plan and quote.</p>
+        <div class="custom-ctas">
+          <a routerLink="/contact" class="btn btn-primary">Discuss Your Project</a>
+          <a routerLink="/pricing" class="btn btn-outline">See Pricing Packages</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section text-center">
+  <div class="container">
+    <span class="section-label">Get Started</span>
+    <h2 class="section-title" style="text-align:center">Ready to Build <span>Something Great?</span></h2>
+    <p class="section-desc" style="margin: 0 auto 2rem;">Start with a free 30-minute consultation. No commitment, no pressure — just a clear conversation about what you need.</p>
+    <a routerLink="/contact" class="btn btn-primary btn-lg">Book a Free Consultation</a>
+  </div>
+</section>

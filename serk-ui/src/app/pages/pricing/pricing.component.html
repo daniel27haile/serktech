@@ -1,0 +1,130 @@
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container text-center">
+    <span class="section-label">Pricing</span>
+    <h1>Clear Pricing, <span class="gradient-text">No Hidden Fees</span></h1>
+    <p>Every package includes clean code, proper deployment, and post-launch support. Pricing is a starting point — final cost depends on your specific scope.</p>
+  </div>
+</section>
+
+<!-- PRICING CARDS -->
+<section class="section">
+  <div class="container">
+    <div class="pricing-grid">
+      @for (plan of plans; track plan.id) {
+        <div class="pricing-card card" [class.highlighted]="plan.highlighted">
+          @if (plan.badge) {
+            <div class="plan-badge">{{ plan.badge }}</div>
+          }
+
+          <div class="plan-header">
+            <div class="plan-name">{{ plan.name }}</div>
+            <div class="plan-price">
+              <span class="price-note">{{ plan.priceNote }}</span>
+              <span class="price-amount">{{ plan.price }}</span>
+            </div>
+            <p class="plan-tagline">{{ plan.tagline }}</p>
+          </div>
+
+          <div class="plan-divider"></div>
+
+          <ul class="plan-features">
+            @for (feature of plan.features; track feature) {
+              <li>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                {{ feature }}
+              </li>
+            }
+          </ul>
+
+          @if (plan.notIncluded && plan.notIncluded.length > 0) {
+            <ul class="plan-not-included">
+              @for (item of plan.notIncluded; track item) {
+                <li>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                  </svg>
+                  {{ item }}
+                </li>
+              }
+            </ul>
+          }
+
+          <a routerLink="/contact" class="btn btn-lg" [class.btn-primary]="plan.highlighted" [class.btn-outline]="!plan.highlighted">{{ plan.cta }}</a>
+        </div>
+      }
+    </div>
+
+    <p class="pricing-disclaimer">
+      * Prices are starting points. Final pricing is agreed upon after reviewing your specific requirements. No surprises.
+    </p>
+  </div>
+</section>
+
+<!-- ALWAYS INCLUDED -->
+<section class="section included-section">
+  <div class="container">
+    <div class="included-inner">
+      <div class="included-left">
+        <span class="section-label">Every Project</span>
+        <h2 class="section-title">Always <span>Included</span></h2>
+        <p class="section-desc">Regardless of package, every project comes with the same standard of quality and care.</p>
+      </div>
+      <div class="included-right">
+        <div class="included-grid">
+          @for (item of included; track item) {
+            <div class="included-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              {{ item }}
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOM -->
+<section class="section custom-section">
+  <div class="container">
+    <div class="custom-card card">
+      <div class="custom-emoji">🧩</div>
+      <h2>Need Something Custom?</h2>
+      <p>Not every project fits a package. If you have specific requirements, a larger scope, or just aren't sure which tier fits you — let's talk. We'll put together a custom quote based on what you actually need.</p>
+      <a routerLink="/contact" class="btn btn-primary btn-lg">Get a Custom Quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- PAYMENT INFO -->
+<section class="section">
+  <div class="container">
+    <div class="payment-grid">
+      <div class="payment-card card">
+        <div class="pay-icon">💳</div>
+        <h4>Payment Schedule</h4>
+        <p>50% upfront to begin, 50% on final delivery. For larger projects, milestone-based payments can be arranged.</p>
+      </div>
+      <div class="payment-card card">
+        <div class="pay-icon">🔄</div>
+        <h4>Revisions</h4>
+        <p>Every package includes at least two full revision rounds. Additional rounds are available for larger-scope changes.</p>
+      </div>
+      <div class="payment-card card">
+        <div class="pay-icon">🛡️</div>
+        <h4>Post-Launch Support</h4>
+        <p>All packages include a post-launch support window for bug fixes and minor adjustments.</p>
+      </div>
+      <div class="payment-card card">
+        <div class="pay-icon">📄</div>
+        <h4>You Own the Code</h4>
+        <p>When the project is done, all code and assets belong to you. No monthly fees, no lock-in.</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,59 @@
+<div class="login-page">
+  <div class="login-card">
+    <div class="login-logo">
+      <span class="logo-icon">S</span>
+      <span class="logo-text">Serk <span>Admin</span></span>
+    </div>
+
+    <h1>Sign In</h1>
+    <p class="login-sub">Access the Serk Technologies admin panel.</p>
+
+    @if (errorMsg()) {
+      <div class="alert-error">{{ errorMsg() }}</div>
+    }
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          class="form-control"
+          [class.is-invalid]="isInvalid('email')"
+          formControlName="email"
+          placeholder="admin@serktech.com"
+          autocomplete="email"
+        />
+        @if (isInvalid('email')) {
+          <span class="error-msg">Valid email required</span>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          class="form-control"
+          [class.is-invalid]="isInvalid('password')"
+          formControlName="password"
+          placeholder="••••••••"
+          autocomplete="current-password"
+        />
+        @if (isInvalid('password')) {
+          <span class="error-msg">Password required</span>
+        }
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-lg w-full" [disabled]="isLoading()">
+        @if (isLoading()) {
+          <span class="spinner"></span> Signing in...
+        } @else {
+          Sign In
+        }
+      </button>
+    </form>
+
+    <a routerLink="/" class="back-link">← Back to website</a>
+  </div>
+</div>
