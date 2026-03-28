@@ -1,0 +1,69 @@
+<header [class.scrolled]="isScrolled()">
+  <div class="container">
+    <div class="header-inner">
+
+      <!-- Logo -->
+      <a routerLink="/" class="logo" (click)="closeMenu()">
+        <span class="logo-icon">S</span>
+        <span class="logo-text">Serk <span>Technologies</span></span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <ul>
+          @for (link of navLinks; track link.path) {
+            <li>
+              <a
+                [routerLink]="link.path"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: false }"
+              >{{ link.label }}</a>
+            </li>
+          }
+        </ul>
+      </nav>
+
+      <!-- Desktop CTA -->
+      <div class="header-cta">
+        <a routerLink="/contact" class="btn btn-outline btn-sm">Get a Quote</a>
+        <a routerLink="/contact" class="btn btn-primary btn-sm">Book a Call</a>
+      </div>
+
+      <!-- Mobile Toggle -->
+      <button class="menu-toggle" (click)="toggleMenu()" [attr.aria-expanded]="mobileMenuOpen()" aria-label="Toggle navigation">
+        @if (!mobileMenuOpen()) {
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        } @else {
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        }
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  @if (mobileMenuOpen()) {
+    <div class="mobile-menu" (click)="closeMenu()">
+      <nav>
+        <ul>
+          <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Home</a></li>
+          @for (link of navLinks; track link.path) {
+            <li>
+              <a [routerLink]="link.path" routerLinkActive="active" (click)="closeMenu()">{{ link.label }}</a>
+            </li>
+          }
+        </ul>
+        <div class="mobile-ctas">
+          <a routerLink="/contact" class="btn btn-outline w-full" (click)="closeMenu()">Get a Quote</a>
+          <a routerLink="/contact" class="btn btn-primary w-full" (click)="closeMenu()">Book a Free Call</a>
+        </div>
+      </nav>
+    </div>
+  }
+</header>

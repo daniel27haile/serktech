@@ -1,0 +1,61 @@
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container text-center">
+    <span class="section-label">Client Reviews</span>
+    <h1>What Clients Say About <span class="gradient-text">Working With Us</span></h1>
+    <p>Real feedback from real clients. No cherry-picking, no made-up quotes — just honest reviews from businesses we've helped.</p>
+
+    <div class="rating-summary">
+      <div class="big-stars">
+        @for (s of stars; track s) { <span>★</span> }
+      </div>
+      <div class="rating-text">
+        <strong>5.0 / 5.0</strong>
+        <span>Average rating across all clients</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS GRID -->
+<section class="section">
+  <div class="container">
+    <div class="testimonials-grid">
+      @for (t of testimonials; track t.id) {
+        <div class="testimonial-card card" [class.featured]="t.featured">
+          @if (t.featured) {
+            <div class="featured-label">Featured</div>
+          }
+
+          <div class="stars">
+            @for (s of stars; track s) { <span class="star">★</span> }
+          </div>
+
+          <p class="testimonial-text">"{{ t.content }}"</p>
+
+          <div class="testimonial-footer">
+            <div class="avatar">{{ t.name.charAt(0) }}</div>
+            <div class="author-info">
+              <div class="author-name">{{ t.name }}</div>
+              <div class="author-role">{{ t.role }}, {{ t.company }}</div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section text-center">
+  <div class="container">
+    <div class="cta-block">
+      <h2>Ready to Be the Next Success Story?</h2>
+      <p>Let's talk about your project and build something you're proud to show off.</p>
+      <div class="cta-btns">
+        <a routerLink="/contact" class="btn btn-primary btn-lg">Book a Free Consultation</a>
+        <a routerLink="/portfolio" class="btn btn-outline btn-lg">See the Work</a>
+      </div>
+    </div>
+  </div>
+</section>

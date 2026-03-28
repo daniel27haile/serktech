@@ -1,0 +1,70 @@
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container text-center">
+    <span class="section-label">FAQ</span>
+    <h1>Answers to Common <span class="gradient-text">Questions</span></h1>
+    <p>Everything you might want to know before reaching out. If something isn't covered here, just ask — we're happy to answer directly.</p>
+  </div>
+</section>
+
+<!-- CATEGORY FILTERS -->
+<section class="section-sm">
+  <div class="container">
+    <div class="filter-tabs">
+      <button
+        class="filter-btn"
+        [class.active]="activeCategory() === 'All'"
+        (click)="setCategory('All')"
+      >All</button>
+      @for (cat of categories; track cat) {
+        <button
+          class="filter-btn"
+          [class.active]="activeCategory() === cat"
+          (click)="setCategory(cat)"
+        >{{ cat }}</button>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- FAQ ACCORDION -->
+<section class="section" style="padding-top: 0;">
+  <div class="container">
+    <div class="faq-list">
+      @for (faq of filteredFaqs(); track faq.id) {
+        <div class="faq-item" [class.open]="activeId() === faq.id">
+          <button class="faq-question" (click)="toggle(faq.id)">
+            <span>{{ faq.question }}</span>
+            <div class="faq-icon" [class.rotated]="activeId() === faq.id">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </div>
+          </button>
+          @if (activeId() === faq.id) {
+            <div class="faq-answer">
+              <p>{{ faq.answer }}</p>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- STILL HAVE QUESTIONS -->
+<section class="section">
+  <div class="container">
+    <div class="more-questions card">
+      <div class="mq-icon">💬</div>
+      <div class="mq-content">
+        <h3>Still Have Questions?</h3>
+        <p>If you didn't find what you were looking for, reach out directly. We'll give you a straight answer — no sales pitch.</p>
+        <div class="mq-actions">
+          <a routerLink="/contact" class="btn btn-primary">Ask a Question</a>
+          <a routerLink="/contact" class="btn btn-outline">Book a Free Call</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
